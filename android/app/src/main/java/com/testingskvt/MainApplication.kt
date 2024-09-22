@@ -1,4 +1,4 @@
-package com.testingskvt
+package com.sabla
 
 import android.app.Application
 import com.facebook.react.PackageList

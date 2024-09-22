@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface testingSKVTTests : XCTestCase
+@interface sablaTests : XCTestCase
 
 @end
 
-@implementation testingSKVTTests
+@implementation sablaTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {
