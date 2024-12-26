@@ -1,4 +1,4 @@
-package com.sabla
+package com.pms
 
 import android.app.Application
 import com.facebook.react.PackageList

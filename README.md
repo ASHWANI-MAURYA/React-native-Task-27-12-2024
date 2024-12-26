@@ -1,79 +1,92 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+--SetUp Steps---
 
-# Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+         1 step. -- init application using this cmd "npx react-native init AppName",
+         2 step. -- for Run Application in react-native using this cmd "npx react-native run-android",
+         3 step. -- for Design Edit in File Name "app.js" or "app.tsx",
+         4 step. -- Design 'Performance Metrics' page using JSX, and styled App UI using React-Native "stylesheet",
+         5 step. -- Manage state using UseState hook from "react",
+         6 step. -- for Animation View using 'Animated' from "React-Native",
+         7 step. -- for Store User Data. install '@react-native-async-storage/async-storage', using 'AsyncStorage' from "@react-native-async-storage/async-storage",
+ 
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+--App Working Steps--
 
-```bash
-# using npm
-npm start
 
-# OR using Yarn
-yarn start
-```
 
-## Step 2: Start your Application
+         1 . first time Maximum Strength & Maximum Speed == 0,
+         2 . when user Input Number in 'Maximum Strength & Maximum Speed' TextInput Box then. onChangeText value store in useState, 
+         3 . button onPress Save 'Maximum Strength & Maximum Speed' both value in localstorage using setItem 'key and Value',
+      
+               keys :
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+                     const STRENGTH_KEY = '@performance_strength';
+                     const SPEED_KEY = '@performance_speed';
 
-### For Android
+               value :
+                     
+                     const [strength, setStrength] = useState('');
+                     const [speed, setSpeed] = useState('');
+           
+         4 . on reStart Application getItem from localstorage keyName,
+         5 . if (value) then. setState(value),
+         6 . add validation for blank or 0 value in inputBok,
+         7 . when value successfully added ProgressBar Get expend According to Value,
 
-```bash
-# using npm
-npm run android
+--Instructions to generate the production-ready APK..--
 
-# OR using Yarn
-yarn android
-```
+           1 . Create a Keystore
+               using this cmd --- 
+               keytool -genkeypair -v -storetype PKCS12 -keyalg RSA -keysize 2048 -validity 10000 -keystore my-upload-key.keystore -alias my-key-alias
 
-### For iOS
+            
+           2 . Place the Keystore in Your Project:
+               using this location ---
+               android/app
+               android
 
-```bash
-# using npm
-npm run ios
+           3 .  Update build.gradle 
 
-# OR using Yarn
-yarn ios
-```
+               Open.. android/app/build.gradle and add the following configuration inside the android block:  ---
+               ...
+               android {
+                  ...
+                  defaultConfig { ... }
+                  signingConfigs {
+                     release {
+                           if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                              storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                              storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                              keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                              keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+                           }
+                     }
+                  }
+                  buildTypes {
+                     release {
+                           ...
+                           signingConfig signingConfigs.release
+                     }
+                  }
+               }
+            
+          4 . Add some line. in gradle.properties
+               MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
+               MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
+               MYAPP_UPLOAD_STORE_PASSWORD=password
+               MYAPP_UPLOAD_KEY_PASSWORD=password
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+         5 . Build the APK For Testing
+               using this cmd 
+               cd android
+               ./gradlew assembleRelease
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+         6 . ABB for Upload on Playstore.
+               using this cmd 
+               ./gradlew bundleRelease
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+         7. Locate the Output:
+               for APK this cmd */-- android/app/build/outputs/apk/release --\*
+               for ABB this cmd */-- android/app/build/outputs/bundle/release --\*

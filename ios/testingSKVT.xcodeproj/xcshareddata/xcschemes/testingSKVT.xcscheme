@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "sabla.app"
-               BlueprintName = "sabla"
-               ReferencedContainer = "container:sabla.xcodeproj">
+               BuildableName = "React-native-task.app"
+               BlueprintName = "React-native-task"
+               ReferencedContainer = "container:React-native-task.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "sablaTests.xctest"
-               BlueprintName = "sablaTests"
-               ReferencedContainer = "container:sabla.xcodeproj">
+               BuildableName = "React-native-taskTests.xctest"
+               BlueprintName = "React-native-taskTests"
+               ReferencedContainer = "container:React-native-task.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "sabla.app"
-            BlueprintName = "sabla"
-            ReferencedContainer = "container:sabla.xcodeproj">
+            BuildableName = "React-native-task.app"
+            BlueprintName = "React-native-task"
+            ReferencedContainer = "container:React-native-task.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "sabla.app"
-            BlueprintName = "sabla"
-            ReferencedContainer = "container:sabla.xcodeproj">
+            BuildableName = "React-native-task.app"
+            BlueprintName = "React-native-task"
+            ReferencedContainer = "container:React-native-task.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
